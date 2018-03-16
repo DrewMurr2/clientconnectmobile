@@ -10,6 +10,7 @@
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
+    <preference name="orientation" value="portrait" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.4.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.4.3" />
@@ -90,13 +91,10 @@
     <splash src="res/screen/ios/Default-Portrait@2x.png" platform="ios" width="1536" height="2048" />
     <splash src="res/screen/ios/Default-Landscape@2x.png" platform="ios" width="2048" height="1536" />
 
-    <splash src="ldpi.png" platform="android" qualifier="ldpi" />
-    <splash src="mdpi.png" platform="android" qualifier="mdpi" />
-    <splash src="hdpi.png" platform="android" qualifier="hdpi" />
-    <splash src="xhdpi.png" platform="android" qualifier="xhdpi" />
-    <splash src="fr-xhdpi.png" platform="android" qualifier="fr-xhdpi" />
-    <splash src="portrait-xxhdpi.png" platform="android" qualifier="port-xxhdpi" />
-    <splash src="landscape-xxhdpi.png" platform="android" qualifier="land-xxhdpi" />
-    <splash src="xxxhdpi.png" platform="android" qualifier="xxxhdpi" />
-
+    <splash src="res/screen/android/drawable-port-ldpi-screen.png" platform="android" qualifier="ldpi" />
+    <splash src="res/screen/android/drawable-port-mdpi-screen.png" platform="android" qualifier="mdpi" />
+    <splash src="res/screen/android/drawable-port-hdpi-screen.png" platform="android" qualifier="hdpi" />
+    <splash src="res/screen/android/drawable-port-xhdpi-screen.png" platform="android" qualifier="xhdpi" />
+    <splash src="res/screen/android/drawable-port-xxhdpi-screen.png" platform="android" qualifier="xxhdpi" />
+    <splash src="res/screen/android/drawable-port-xxhdpi-screen.png" platform="android" qualifier="xxxhdpi" />
 </widget>
