@@ -2568,7 +2568,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".close {\n  font-size: 180%;\n  margin-right: 10px;\n  margin-top: 5px; }\n\n.preorder-form-field {\n  width: 100% !important; }\n\n.drewsModalContainer {\n  position: fixed;\n  width: 80%;\n  height: 30%;\n  margin: 5% auto;\n  /* Will not center vertically and won't work in IE6/7. */\n  left: 0;\n  right: 0; }\n", ""]);
+exports.push([module.i, ".close {\n  font-size: 180%;\n  margin-right: 10px;\n  margin-top: 5px; }\n\n.preorder-form-field {\n  width: 100% !important; }\n\n.drewsModalContainer {\n  z-index: 3;\n  position: fixed;\n  width: 80%;\n  height: 30%;\n  margin: 5% auto;\n  /* Will not center vertically and won't work in IE6/7. */\n  left: 0;\n  right: 0; }\n", ""]);
 
 // exports
 
@@ -2687,7 +2687,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".navbarSettings {\n  background-color: #fff;\n  height: 87px;\n  padding-top: 10px; }\n\n.registerAccountloader {\n  text-align: center; }\n\n.input-group {\n  height: 38px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  div.mobile {\n    display: none; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  div.mobile-title {\n    font-size: 23px; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  div.mobile-field {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .preorder-form-field, .preorder-input-form {\n    width: 90%; } }\n\n.preorder-now-button {\n  width: 350px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n    .preorder-now-button {\n      width: 90%; } }\n\n@media screen and (min-width: 768px) and (max-width: 1024px) {\n  li.client-connect-pricing-list-item {\n    text-align: center;\n    padding-left: 0px; } }\n", ""]);
+exports.push([module.i, ".navbarSettings {\n  background-color: #fff;\n  height: 87px;\n  padding-top: 10px; }\n\n.registerAccountloader {\n  text-align: center; }\n\n.input-group {\n  height: 38px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  div.mobile {\n    display: none; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  div.mobile-title {\n    font-size: 23px; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  div.mobile-field {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .preorder-form-field, .preorder-input-form {\n    width: 90%; } }\n\n@media screen and (min-width: 768px) {\n  .preorder-input-form {\n    width: 310px; } }\n\n.preorder-now-button {\n  width: 350px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n    .preorder-now-button {\n      width: 90%; } }\n\n@media screen and (min-width: 768px) and (max-width: 1024px) {\n  li.client-connect-pricing-list-item {\n    text-align: center;\n    padding-left: 0px; } }\n", ""]);
 
 // exports
 
@@ -2748,7 +2748,6 @@ var PageLoginComponent = /** @class */ (function () {
             alert('The email is invalid');
             return;
         }
-        ;
         if (!this.isValid(this.signup.company)) {
             alert('Firm is required and must be more than 4 characters.');
             return;
@@ -2785,7 +2784,7 @@ var PageLoginComponent = /** @class */ (function () {
         });
     };
     PageLoginComponent.prototype.validate = function (t) {
-        return t ? "/assets/images/signupForm/check-clipart-6.png" : "/assets/images/signupForm/xmark.png";
+        return t ? '/assets/images/signupForm/check-clipart-6.png' : '/assets/images/signupForm/xmark.png';
     };
     PageLoginComponent.prototype.isValid = function (p) {
         return p && p.length > 4;
@@ -2795,7 +2794,7 @@ var PageLoginComponent = /** @class */ (function () {
         return this.signup.email && re.test(this.signup.email);
     };
     PageLoginComponent.prototype.passwordsMatch = function () {
-        return this.signup.password == this.signup.password2 && this.isValid(this.signup.password);
+        return this.signup.password === this.signup.password2 && this.isValid(this.signup.password);
     };
     PageLoginComponent.prototype.setupForm = function () {
         var controls = {};
@@ -2807,7 +2806,7 @@ var PageLoginComponent = /** @class */ (function () {
         var _this = this;
         this.processing = true;
         this.apiService.call('/login', { email: this.formGroup.value.email, password: this.formGroup.value.password }).subscribe(function (response) {
-            if (response.success == true) {
+            if (response.success === true) {
                 _this.router.navigateByUrl('/');
             }
             else {
@@ -3118,7 +3117,6 @@ var NewMessageWindowComponent = /** @class */ (function () {
         }
         this.windowContainerZIndex = 111;
         this.closed = false;
-        // this.reset();
     };
     NewMessageWindowComponent.prototype.reset = function () {
         this.formGroup.reset();
@@ -3721,21 +3719,22 @@ var NumberThreadsComponent = /** @class */ (function () {
                 msg.isGlowing = true;
             }
             console.log('Message in number-thread:', msg);
-            if (msg.ournumber != _this.numberObj.number)
-                return; //The message isn't for this number
+            if (msg.ournumber !== _this.numberObj.number) {
+                return;
+            }
             var m = _this.messageService;
             if (m.conversationExistsInMessageArray(msg, _this.threads)) {
                 var oldMessage = m.returnMatchingConversation(msg, _this.threads);
                 if (m.messageIsNewerThanMessage(msg, oldMessage)) {
-                    m.replaceMessageInArray(msg, oldMessage, _this.threads); //Only want 1 message per conversation in this view
+                    m.replaceMessageInArray(msg, oldMessage, _this.threads); // Only want 1 message per conversation in this view
                 }
                 else {
                     console.log('OLDER MESSAGE CAME IN VIA THE WEBSOCKET');
-                    //Do nothing we don't want older messages
+                    // Do nothing we don't want older messages
                 }
             }
             else {
-                m.addMessageToArrayWithLimit(msg, _this.threads, _this.threadLimit, true); //Add the new message
+                m.addMessageToArrayWithLimit(msg, _this.threads, _this.threadLimit, true); // Add the new message
             }
         });
         this.webSocketService.contacts.create.subscribe(function (contact) {
@@ -3748,7 +3747,7 @@ var NumberThreadsComponent = /** @class */ (function () {
             _this.load();
         });
         this.webSocketService.refresh.subscribe(function (ref) {
-            _this.load(); //The websocket tries to maintain a connection and emmits the refresh event if it lost connection
+            _this.load(); // The websocket tries to maintain a connection and emmits the refresh event if it lost connection
         });
     };
     NumberThreadsComponent.prototype.onAssignedOnlyToggle = function ($event) {
@@ -3766,11 +3765,11 @@ var NumberThreadsComponent = /** @class */ (function () {
         if (this.assigned_only) {
             options.assigned_only = true;
         }
-        if (this.usage == 'numberPage') {
+        if (this.usage === 'numberPage') {
             options.limit = this.perPageThreads;
         }
         this.apiService.call('/components/number-thread', options).subscribe(function (resp) {
-            resp && resp.messages ? _this.threads = resp.messages : setTimeout(function () { return _this.load(); }, 10000); //Try again in 10 seconds
+            resp && resp.messages ? _this.threads = resp.messages : setTimeout(function () { return _this.load(); }, 10000); // Try again in 10 seconds
             resp && resp.contacts ? _this.contacts = resp.contacts : console.log('Didnt get what I wanted from number-threads call');
             _this.processing = false;
         }, function () {
@@ -3846,12 +3845,14 @@ var NumberThreadsComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__thread_thread_context_menu_thread_context_menu_component__ = __webpack_require__("../../../../../src/app/number-threads/thread.module/thread/thread-context-menu/thread-context-menu.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__new_message_window_new_message_window_module__ = __webpack_require__("../../../../../src/app/new-message-window/new-message-window.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__thread_compose_thread_compose_component__ = __webpack_require__("../../../../../src/app/number-threads/thread.module/thread/compose/thread-compose.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_floating_action_buttons_floating_action_buttons_module__ = __webpack_require__("../../../../../src/app/shared/floating-action-buttons/floating-action-buttons.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -3871,7 +3872,8 @@ var ThreadModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_router__["g" /* RouterModule */],
                 __WEBPACK_IMPORTED_MODULE_5__shared_message_form_floating_buttons_message_form_floating_buttons_module__["a" /* MessageFormFloatingButtonsModule */],
-                __WEBPACK_IMPORTED_MODULE_7__new_message_window_new_message_window_module__["a" /* NewMessageWindowModule */]
+                __WEBPACK_IMPORTED_MODULE_7__new_message_window_new_message_window_module__["a" /* NewMessageWindowModule */],
+                __WEBPACK_IMPORTED_MODULE_9__shared_floating_action_buttons_floating_action_buttons_module__["a" /* FloatingActionButtonsModule */],
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__thread__["c" /* ThreadFooterComponent */],
@@ -3894,7 +3896,7 @@ var ThreadModule = /** @class */ (function () {
 /***/ "../../../../../src/app/number-threads/thread.module/thread/compose/thread-compose.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"windowContainer\"\r\n  [ngClass]=\"{'active':!closed, 'minimized':minimized}\"\r\n>\r\n  <div id=\"window\" [ngClass]=\"{'minimized':minimized}\">\r\n    <div id=\"header\">\r\n      <mat-icon class=\"material-icons\">drafts</mat-icon>\r\n      <div id=\"rightIcons\" class=\"float-right\">\r\n        <a href=\"javascript:;\" (click)=\"minimize()\"><mat-icon class=\"material-icons\">remove</mat-icon></a>\r\n        <a href=\"javascript:;\" (click)=\"close()\"><mat-icon class=\"material-icons\">clear</mat-icon></a>\r\n      </div>\r\n    </div>\r\n\r\n    <div id=\"body\">\r\n      <form action=\"\" [formGroup]=\"formGroup\">\r\n        <div id=\"selectedTag\" *ngIf=\"tag\">\r\n          <strong>To:</strong> &nbsp; &nbsp; {{tag.name}} <img style=\" margin-left:10px\" width=\"17px\" src=\"../../assets/images/tags/if_icon-146-tag_314740.png\" />\r\n        </div>\r\n        <mat-form-field *ngIf=\"!tag\"\r\n            class=\"full-width\">\r\n          <input #contactInput (keyup)=\"searchContact()\" matInput  [matAutocomplete]=\"auto\" placeholder=\"To\" formControlName=\"to\">\r\n          <mat-autocomplete #auto=\"matAutocomplete\">\r\n            <mat-option [value]=\"\" (click)=\"tagSelected(tag)\" *ngFor=\"let tag of tags;\">\r\n              <div class=\"avatar-container\"  style=\"width: 30px; height: 30px;\">\r\n\r\n             <div _ngcontent-c5=\"\" class=\"avatar-content\" ng-reflect-ng-style=\"[object Object]\" style=\"text-align: center; border-radius: 100%;   line-height: 30px; \">\r\n                <img style=\"width: 17px; margin-top: 7px;\" width=\"24px\" src=\"../../assets/images/tags/if_icon-146-tag_314740.png\" />\r\n              </div>\r\n              </div>\r\n              {{tag.name}}\r\n            </mat-option>\r\n            <mat-option\r\n                [value]=\"contact.number\" *ngFor=\"let contact of contacts; let index = index;\">              \r\n                <ngx-avatar\r\n                    [size]=\"30\"\r\n                    [gravatarId]=\"contact.email\"  [name]=\"contact.name\">\r\n                </ngx-avatar>\r\n                <span class=\"contact-name\">{{contact.name}}</span>\r\n            </mat-option>              \r\n          </mat-autocomplete>\r\n        </mat-form-field>\r\n\r\n        <mat-form-field>\r\n          <mat-select (openedChange)=\"onSelectingNumber($event)\" (selectionChange)=\"afterSelectingNumber()\" placeholder=\" Please select a number\" name=\"from\" formControlName=\"from\">\r\n\r\n            <mat-option *ngFor=\"let number of accountNumbers\" [value]=\"number.number\">\r\n              {{number.contactName || number.number}}\r\n            </mat-option>\r\n          </mat-select>\r\n        </mat-form-field>\r\n        <mat-input-container class=\"full-width textarea\">\r\n          <textarea class=\"mobile-form-textarea\" rows=\"13\" matInput placeholder=\"Say something\" formControlName=\"message\" ></textarea>\r\n        </mat-input-container>\r\n\r\n        <div\r\n          id=\"scheduledTime\"\r\n          [ngClass]=\"{'active':formGroup.value.scheduled_time}\"\r\n          class=\"text-muted\">\r\n\r\n          <mat-icon\r\n            class=\"timeIcon material-icons pull-left\">access_time</mat-icon>\r\n\r\n          <i class=\"pull-left\" style=\"margin-top:2px;\">Scheduled on {{formGroup.value.scheduled_time}}</i>\r\n          <div class=\"float-right closeIcon\">\r\n            <mat-icon\r\n                style=\"\r\n                height: 10px;\r\n                width: 16px;\r\n                font-size: 12px;\"\r\n                matTooltip=\"Clear Timer\" [matTooltipPosition]=\"'left'\"\r\n                (click)=\"removeTimer()\"\r\n                class=\"material-icons\">close</mat-icon>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div id=\"windowContainer\"\r\n  [ngClass]=\"{'active':!closed, 'minimized':minimized}\"\r\n>\r\n  <div id=\"window\" [ngClass]=\"{'minimized':minimized}\">\r\n    <div id=\"header\">\r\n      <mat-icon class=\"material-icons\">drafts</mat-icon>\r\n      <div id=\"rightIcons\" class=\"float-right\">\r\n        <a href=\"javascript:;\" (click)=\"minimize()\"><mat-icon class=\"material-icons\">remove</mat-icon></a>\r\n        <a href=\"javascript:;\" (click)=\"close()\"><mat-icon class=\"material-icons\">clear</mat-icon></a>\r\n      </div>\r\n    </div>\r\n\r\n    <div id=\"body\">\r\n      <form action=\"\" [formGroup]=\"formGroup\">\r\n        <mat-form-field *ngIf=\"!tag\"\r\n            class=\"full-width\">\r\n          <input #contactInput matInput [readonly]=\"true\" placeholder=\"To\" formControlName=\"to\" value={{contact.number}}>       \r\n        </mat-form-field>\r\n        \r\n        <mat-input-container class=\"full-width textarea\">\r\n          <textarea class=\"mobile-form-textarea\" rows=\"13\" matInput placeholder=\"Say something\" formControlName=\"message\"></textarea>\r\n        </mat-input-container>\r\n      </form>\r\n    </div>\r\n  </div>\r\n  <div class=\"mobile-compose\">\r\n    <app-sub-button\r\n      *ngFor=\"let button of subButtons; let index = index;\"\r\n      [button] = \"button\"\r\n      [totalButtons] = \"subButtons.length\"\r\n      [buttonIndex]=\"index\"\r\n      (subButtonClicked)=\"onSubButtonClicked(index)\"\r\n      [size] = 'size'\r\n      [id]=\"'button'+(index)\"\r\n    >\r\n    </app-sub-button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3906,7 +3908,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".avatar-container {\n  margin-top: 9px;\n  float: left;\n  margin-right: 10px; }\n  .avatar-container img {\n    margin: 0px;\n    vertical-align: top; }\n  #windowContainer {\n  display: block;\n  position: fixed;\n  right: 0px;\n  bottom: 0px;\n  width: 411px;\n  height: 0px;\n  z-index: 111; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n    #windowContainer {\n      width: 100vw;\n      height: 100vh;\n      z-index: 1001; } }\n  #windowContainer #floatingBtns {\n    position: absolute;\n    right: 10px;\n    bottom: 20px; }\n  #windowContainer #window {\n    height: 0px;\n    -webkit-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    width: 0;\n    position: absolute;\n    bottom: 0px;\n    right: 86px;\n    -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n    z-index: 1;\n    background-color: #FFF;\n    overflow: hidden; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n      #windowContainer #window {\n        width: 100vw;\n        height: 100vh;\n        position: absolute;\n        left: 0; } }\n  #windowContainer #window #body {\n      margin-top: 39px;\n      max-height: 80%;\n      padding-top: 10px; }\n  #windowContainer #window #body #selectedTag {\n        padding-left: 10px;\n        margin-top: 6px;\n        border-bottom: 1px solid #e0e0e0;\n        padding-bottom: 5px;\n        margin-bottom: 5px; }\n  #windowContainer #window #body #selectedTag img {\n          float: right;\n          margin-right: 10px; }\n  #windowContainer #window #body /deep/ .mat-form-field-empty.mat-form-field-placeholder {\n        padding-left: 15px !important; }\n  #windowContainer #window #body /deep/ input.mat-input-element {\n        padding-left: 13px;\n        padding-right: 13px; }\n  #windowContainer #window #body /deep/ .mat-select-value-text {\n        padding-left: 15px;\n        padding-right: 15px; }\n  #windowContainer #window #body /deep/ .mat-select-arrow-wrapper {\n        padding-right: 11px; }\n  #windowContainer #window #body /deep/ .mat-form-field-infix {\n        width: 100%; }\n  #windowContainer #window #body /deep/ .mat-form-field-placeholder {\n        padding-left: 15px; }\n  #windowContainer #window #body /deep/ .mat-form-field-underline {\n        background-color: #e0e0e0; }\n  #windowContainer #window #body /deep/ textarea.mat-input-element {\n        padding-left: 15px;\n        padding-right: 15px; }\n  #windowContainer #window #footer {\n      padding-left: 15px;\n      padding-right: 15px;\n      position: absolute;\n      height: 38px;\n      bottom: 15px;\n      width: 100%; }\n  #windowContainer #window #footer #deleteIcon {\n        color: #48494a;\n        display: block;\n        margin-top: 10px; }\n  #windowContainer #window #scheduledTime {\n      position: absolute;\n      bottom: -1px;\n      font-size: 11px;\n      padding-left: 10px;\n      width: 100%;\n      opacity: 0;\n      -webkit-transition: all 0.4s;\n      transition: all 0.4s; }\n  #windowContainer #window #scheduledTime.active {\n        opacity: 1; }\n  #windowContainer #window #scheduledTime .timeIcon {\n        margin-top: 5px;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n  #windowContainer #window #scheduledTime .closeIcon {\n        margin-top: 3px;\n        cursor: pointer;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n  #windowContainer.active {\n    height: 400px; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n      #windowContainer.active {\n        width: 100vw; } }\n  #windowContainer.active #window {\n      height: 400px;\n      width: 320px; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n        #windowContainer.active #window {\n          width: 100vw;\n          height: 100vh;\n          position: absolute;\n          left: 0;\n          z-index: -999; } }\n  #windowContainer.minimized, #windowContainer.minimized #window {\n    height: 39px !important; }\n  #header {\n  background: #424242;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  color: #fff;\n  height: 39px;\n  line-height: 18px;\n  outline: 1px solid transparent;\n  padding: 11px 20px;\n  z-index: 1111111111111;\n  position: absolute;\n  width: 100%; }\n  #header .material-icons {\n    font-size: 19px; }\n  #header #rightIcons {\n    margin-right: -15px; }\n  #header #rightIcons a {\n      color: #b3b3b3; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n  .mobile-form-textarea {\n    height: calc(100vh - 180px); } }\n  .contact-name {\n  position: relative;\n  top: -38px;\n  left: 37px; }\n", ""]);
+exports.push([module.i, ".avatar-container {\n  margin-top: 9px;\n  float: left;\n  margin-right: 10px; }\n  .avatar-container img {\n    margin: 0px;\n    vertical-align: top; }\n  #windowContainer {\n  display: block;\n  overflow: hidden;\n  position: fixed;\n  right: 0px;\n  bottom: 0px;\n  width: 411px;\n  height: 0px;\n  z-index: 111; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n    #windowContainer {\n      width: 100vw;\n      height: 100vh;\n      z-index: 1001; } }\n  #windowContainer #window {\n    height: 0px;\n    -webkit-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    width: 0;\n    position: absolute;\n    bottom: 0px;\n    right: 86px;\n    -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n    z-index: 1;\n    background-color: #FFF;\n    overflow: hidden; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n      #windowContainer #window {\n        width: 100vw;\n        height: 100vh;\n        position: absolute;\n        left: 0; } }\n  #windowContainer #window #body {\n      margin-top: 39px;\n      max-height: 80%;\n      padding-top: 10px; }\n  #windowContainer #window #body #selectedTag {\n        padding-left: 10px;\n        margin-top: 6px;\n        border-bottom: 1px solid #e0e0e0;\n        padding-bottom: 5px;\n        margin-bottom: 5px; }\n  #windowContainer #window #body #selectedTag img {\n          float: right;\n          margin-right: 10px; }\n  #windowContainer #window #body /deep/ .mat-form-field-empty.mat-form-field-placeholder {\n        padding-left: 15px !important; }\n  #windowContainer #window #body /deep/ input.mat-input-element {\n        padding-left: 13px;\n        padding-right: 13px; }\n  #windowContainer #window #body /deep/ .mat-select-value-text {\n        padding-left: 15px;\n        padding-right: 15px; }\n  #windowContainer #window #body /deep/ .mat-select-arrow-wrapper {\n        padding-right: 11px; }\n  #windowContainer #window #body /deep/ .mat-form-field-infix {\n        width: 100%; }\n  #windowContainer #window #body /deep/ .mat-form-field-placeholder {\n        padding-left: 15px; }\n  #windowContainer #window #body /deep/ .mat-form-field-underline {\n        background-color: #e0e0e0; }\n  #windowContainer #window #body /deep/ textarea.mat-input-element {\n        padding-left: 15px;\n        padding-right: 15px; }\n  #windowContainer #window #footer {\n      padding-left: 15px;\n      padding-right: 15px;\n      position: absolute;\n      height: 38px;\n      bottom: 15px;\n      width: 100%; }\n  #windowContainer #window #footer #deleteIcon {\n        color: #48494a;\n        display: block;\n        margin-top: 10px; }\n  #windowContainer #window #scheduledTime {\n      position: absolute;\n      bottom: -1px;\n      font-size: 11px;\n      padding-left: 10px;\n      width: 100%;\n      opacity: 0;\n      -webkit-transition: all 0.4s;\n      transition: all 0.4s; }\n  #windowContainer #window #scheduledTime.active {\n        opacity: 1; }\n  #windowContainer #window #scheduledTime .timeIcon {\n        margin-top: 5px;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n  #windowContainer #window #scheduledTime .closeIcon {\n        margin-top: 3px;\n        cursor: pointer;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n  #windowContainer.active {\n    display: none;\n    height: 400px; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n      #windowContainer.active {\n        width: 100vw; } }\n  #windowContainer.active #window {\n      height: 400px;\n      width: 320px; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n        #windowContainer.active #window {\n          width: 100vw;\n          height: 100vh;\n          position: absolute;\n          left: 0;\n          z-index: -999; } }\n  #windowContainer.unactive {\n    display: block; }\n  #windowContainer.minimized, #windowContainer.minimized #window {\n    height: 39px !important; }\n  #header {\n  background: #424242;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  color: #fff;\n  height: 39px;\n  line-height: 18px;\n  outline: 1px solid transparent;\n  padding: 11px 20px;\n  z-index: 1111111111111;\n  position: absolute;\n  width: 100%; }\n  #header .material-icons {\n    font-size: 19px; }\n  #header #rightIcons {\n    margin-right: -15px; }\n  #header #rightIcons a {\n      color: #b3b3b3; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n  .mobile-form-textarea {\n    height: calc(100vh - 150px); } }\n  .contact-name {\n  position: relative;\n  top: -38px;\n  left: 37px; }\n  #mobilefloatingBtns {\n  position: absolute;\n  left: 150px;\n  top: 250px;\n  z-index: 999; }\n  .mobile-compose {\n  position: absolute;\n  right: 6px;\n  bottom: 75px;\n  width: 68px;\n  height: auto; }\n  .mobile-compose /deep/ button {\n    margin-bottom: 10px; }\n", ""]);
 
 // exports
 
@@ -3922,13 +3924,14 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThreadComposeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared_services_user_service__ = __webpack_require__("../../../../../src/app/shared/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_services_message_service__ = __webpack_require__("../../../../../src/app/shared/services/message.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_services_general_service__ = __webpack_require__("../../../../../src/app/shared/services/general.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_message_form_floating_buttons_message_form_floating_buttons_message_form_floating_buttons_component__ = __webpack_require__("../../../../../src/app/shared/message-form-floating-buttons/message-form-floating-buttons/message-form-floating-buttons.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_services_api_service__ = __webpack_require__("../../../../../src/app/shared/services/api.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shared_services_websocket_service__ = __webpack_require__("../../../../../src/app/shared/services/websocket.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__thread_body_thread_body_component__ = __webpack_require__("../../../../../src/app/number-threads/thread.module/thread/thread-body/thread-body.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_user_service__ = __webpack_require__("../../../../../src/app/shared/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_services_message_service__ = __webpack_require__("../../../../../src/app/shared/services/message.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_services_general_service__ = __webpack_require__("../../../../../src/app/shared/services/general.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared_message_form_floating_buttons_message_form_floating_buttons_message_form_floating_buttons_component__ = __webpack_require__("../../../../../src/app/shared/message-form-floating-buttons/message-form-floating-buttons/message-form-floating-buttons.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__shared_services_api_service__ = __webpack_require__("../../../../../src/app/shared/services/api.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_services_websocket_service__ = __webpack_require__("../../../../../src/app/shared/services/websocket.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3946,28 +3949,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ThreadComposeComponent = /** @class */ (function () {
-    function ThreadComposeComponent(userService, fb, messageService, generalService, apiService, webSocketService) {
+    function ThreadComposeComponent(userService, fb, messageService, generalService, apiService, webSocketService, threadBody) {
         this.userService = userService;
         this.fb = fb;
         this.messageService = messageService;
         this.generalService = generalService;
         this.apiService = apiService;
         this.webSocketService = webSocketService;
+        this.threadBody = threadBody;
+        this.defaultSubBtns = [
+            {
+                color: 'warn',
+                tooltipText: 'Send photo!',
+                tooltipDirection: 'left',
+                icon: 'photo_camera',
+                name: 'photo',
+            },
+            {
+                color: 'accent',
+                tooltipText: 'Schedule',
+                tooltipDirection: 'left',
+                icon: 'date_range',
+                name: 'schedule',
+            },
+            {
+                color: 'default',
+                tooltipText: 'Discard',
+                tooltipDirection: 'left',
+                icon: 'delete',
+                name: 'delete',
+            },
+            {
+                color: 'primary',
+                tooltipText: 'Send Message',
+                tooltipDirection: 'left',
+                icon: 'send',
+                name: 'submit',
+                disabled: true,
+            }
+        ];
         this.tags = [];
         this.contacts = [];
         this.accountNumbers = this.userService.user.numbers;
         this.minimized = false;
         this.closed = true;
-        this.btnDisabled = false;
+        this.btnDisabled = true;
         this.processing = false;
-        this.openedThroughClick = false;
+        this.openedThroughClick = true;
         this.selectingNumber = false;
         this.selectingDateTime = false;
-        this.isMouseOverMainBtn = false;
+        this.isMouseOverMainBtn = true;
         this.windowContainerZIndex = -11111111;
         this.selectingImage = false;
         this.discarding = false; // to avoid from opening if user click on discard icon
+        this.open();
     }
     ThreadComposeComponent.prototype.ngOnInit = function () {
         this.setupForm();
@@ -3985,8 +4022,8 @@ var ThreadComposeComponent = /** @class */ (function () {
     };
     ThreadComposeComponent.prototype.setupForm = function () {
         var controls = {};
-        controls.from = this.fb.control('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["m" /* Validators */].required);
-        controls.to = this.fb.control('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["m" /* Validators */].required);
+        controls.from = this.fb.control('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["m" /* Validators */].required);
+        controls.to = this.fb.control('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["m" /* Validators */].required);
         controls.message = this.fb.control('');
         controls.fileId = this.fb.control('');
         controls.googleAccessToken = this.fb.control('');
@@ -3994,12 +4031,7 @@ var ThreadComposeComponent = /** @class */ (function () {
         this.formGroup = this.fb.group(controls);
     };
     ThreadComposeComponent.prototype.minimize = function () {
-        if (this.minimized === false) {
-            this.minimized = true;
-        }
-        else {
-            this.minimized = false;
-        }
+        this.minimized = !this.minimized;
     };
     ThreadComposeComponent.prototype.onSelectingNumber = function (opened) {
         if (opened) {
@@ -4009,33 +4041,8 @@ var ThreadComposeComponent = /** @class */ (function () {
     ThreadComposeComponent.prototype.close = function (action) {
         var _this = this;
         if (action === void 0) { action = ''; }
-        if (this.selectingImage || this.selectingDateTime) {
-            return false;
-        }
-        if (action === 'discard') {
-            this.discarding = true;
-        }
-        setTimeout(function () {
-            // don't auto close on mouse out if opened through external mouse click
-            if ((_this.openedThroughClick && action === 'mouseOutFromWindowContainer') ||
-                _this.selectingNumber === true ||
-                _this.isMouseOverMainBtn === true) {
-                return false;
-            }
-            _this.closed = true;
-            setTimeout(function () {
-                //  reset only if form is empty
-                if (((_this.formGroup.value.scheduled_time === null) &&
-                    _this.formGroup.value.fileId.length === 0 &&
-                    _this.formGroup.value.from.length === 0 &&
-                    _this.formGroup.value.message === 0 &&
-                    _this.formGroup.value.to.length === 0) ||
-                    action === 'msgSent'
-                    || action === 'discard') {
-                    _this.reset();
-                }
-            }, 1400);
-        }, 199);
+        this.threadBody.hideReplyForm();
+        this.closed = false;
         setTimeout(function () {
             _this.windowContainerZIndex = -111111;
             _this.discarding = false;
@@ -4044,12 +4051,13 @@ var ThreadComposeComponent = /** @class */ (function () {
     ThreadComposeComponent.prototype.open = function (action, eventName) {
         if (action === void 0) { action = ''; }
         if (eventName === void 0) { eventName = ''; }
+        var subButtons = JSON.parse(JSON.stringify(this.defaultSubBtns));
+        this.subButtons = subButtons;
         if (this.processing === true || this.discarding === true || (action === 'mouseOverFromWindowContainer' && this.closed === true) || (this.selectingNumber === true)) {
             return false;
         }
         this.windowContainerZIndex = 111;
-        this.closed = false;
-        // this.reset();
+        this.closed = true;
     };
     ThreadComposeComponent.prototype.reset = function () {
         this.formGroup.reset();
@@ -4138,6 +4146,7 @@ var ThreadComposeComponent = /** @class */ (function () {
         this.formGroup.updateValueAndValidity();
     };
     ThreadComposeComponent.prototype.onMainBtnClicked = function () {
+        console.log('MainBtn Clicked');
         if (this.closed) {
             this.open();
         }
@@ -4151,21 +4160,26 @@ var ThreadComposeComponent = /** @class */ (function () {
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_5__shared_message_form_floating_buttons_message_form_floating_buttons_message_form_floating_buttons_component__["a" /* MessageFormFloatingButtonsComponent */]),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_6__shared_message_form_floating_buttons_message_form_floating_buttons_message_form_floating_buttons_component__["a" /* MessageFormFloatingButtonsComponent */]),
         __metadata("design:type", Object)
     ], ThreadComposeComponent.prototype, "MessageFormFloatingButtonsComponent", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('contact'),
+        __metadata("design:type", Object)
+    ], ThreadComposeComponent.prototype, "contact", void 0);
     ThreadComposeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'thread-compose-window',
             template: __webpack_require__("../../../../../src/app/number-threads/thread.module/thread/compose/thread-compose.component.html"),
             styles: [__webpack_require__("../../../../../src/app/number-threads/thread.module/thread/compose/thread-compose.component.scss")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__shared_services_user_service__["a" /* UserService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["c" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3__shared_services_message_service__["a" /* MessageService */],
-            __WEBPACK_IMPORTED_MODULE_4__shared_services_general_service__["a" /* GeneralService */],
-            __WEBPACK_IMPORTED_MODULE_6__shared_services_api_service__["a" /* ApiService */],
-            __WEBPACK_IMPORTED_MODULE_7__shared_services_websocket_service__["a" /* WebsocketService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__shared_services_user_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["c" /* FormBuilder */],
+            __WEBPACK_IMPORTED_MODULE_4__shared_services_message_service__["a" /* MessageService */],
+            __WEBPACK_IMPORTED_MODULE_5__shared_services_general_service__["a" /* GeneralService */],
+            __WEBPACK_IMPORTED_MODULE_7__shared_services_api_service__["a" /* ApiService */],
+            __WEBPACK_IMPORTED_MODULE_8__shared_services_websocket_service__["a" /* WebsocketService */],
+            __WEBPACK_IMPORTED_MODULE_1__thread_body_thread_body_component__["a" /* ThreadBodyComponent */]])
     ], ThreadComposeComponent);
     return ThreadComposeComponent;
 }());
@@ -4197,7 +4211,7 @@ var ThreadComposeComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/number-threads/thread.module/thread/thread-body/thread-body.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card-content [ngClass]=\"{'isReplyFormActive':thread.displayProperties.shouldShowReplyForm}\">\r\n    <p [routerLink]=\"'/app/conversation/ournumber/'+thread.ournumber+'/theirnumber/'+thread.theirnumber\">{{thread.body}}</p>    \r\n    <div *ngIf=\"thread.displayCompose\" [ngClass]=\"{'textareaContainer':true}\" class=\"mobile\">\r\n        <thread-compose-window></thread-compose-window>        \r\n    </div>\r\n    \r\n    <div [ngClass]=\"{'textareaContainer':true}\" class=\"desktop\">\r\n        <mat-input-container class=\"full-width textarea\">\r\n                <textarea rows=\"4\" [(ngModel)]=\"thread.displayProperties.replyMsg\" matInput placeholder=\"Write your message here.\"></textarea>\r\n        </mat-input-container>\r\n        <div\r\n            id=\"scheduledTime\"\r\n            [ngClass]=\"{'active':scheduledTime}\"\r\n            class=\"text-muted\"\r\n        >    \r\n            <mat-icon class=\"timeIcon material-icons\">access_time</mat-icon>    \r\n            <i class=\"text\">Scheduled on {{scheduledTime}}</i>\r\n            <div class=\"closeIcon\">\r\n                <mat-icon\r\n                    matTooltip=\"Clear Timer\" [matTooltipPosition]=\"'right'\"\r\n                    (click)=\"removeTimer()\"\r\n                    class=\"material-icons\"\r\n                >\r\n                    close\r\n                </mat-icon>\r\n            </div>    \r\n        </div>\r\n    </div>\r\n</mat-card-content>\r\n\r\n<app-message-form-floating-buttons \r\n  *ngIf=\"disableReplyFeature!==true && usage!='conversationPage'\"\r\n  size=\"mini\"\r\n  [active]=\"thread.displayProperties.shouldShowReplyForm\"\r\n  id=\"floatingBtns\"\r\n  (mouseenter)=\"showReplyForm()\"\r\n  [mainBtnColor]=\"'primary'\"\r\n  [disableSubmitBtn]=\"processing() || (!thread.displayProperties.replyMsg) && !fileId\"\r\n  (photoSelectionStart)=\"onPhotoSelectionStart()\"\r\n  (photoSelectionEnd)=\"onPhotoSelectionEnd($event)\"\r\n  (scheduleSelectionStart) = \"onScheduleSelectionStart()\"\r\n  (scheduleSelectionEnd) = \"onScheduleSelectionEnd($event)\"\r\n  (submit) = \"onSubmit()\"\r\n  (discard) = \"hideReplyForm('discard')\"\r\n  [usedIn]=\"'replyForm'\"\r\n  (click)=\"open()\"\r\n>\r\n</app-message-form-floating-buttons>"
+module.exports = "<mat-card-content [ngClass]=\"{'isReplyFormActive':thread.displayProperties.shouldShowReplyForm}\">\r\n    <p [routerLink]=\"'/app/conversation/ournumber/'+thread.ournumber+'/theirnumber/'+thread.theirnumber\">{{thread.body}}</p>    \r\n    <div *ngIf=\"thread.displayCompose\" [ngClass]=\"{'textareaContainer':true}\" class=\"mobile\">\r\n        <thread-compose-window\r\n            [contact]='contact'\r\n        >\r\n        </thread-compose-window>        \r\n    </div>\r\n    \r\n    <div [ngClass]=\"{'textareaContainer':true}\" class=\"desktop\">\r\n        <mat-input-container class=\"full-width textarea\">\r\n                <textarea rows=\"4\" [(ngModel)]=\"thread.displayProperties.replyMsg\" matInput placeholder=\"Write your message here.\"></textarea>\r\n        </mat-input-container>\r\n        <div\r\n            id=\"scheduledTime\"\r\n            [ngClass]=\"{'active':scheduledTime}\"\r\n            class=\"text-muted\"\r\n        >    \r\n            <mat-icon class=\"timeIcon material-icons\">access_time</mat-icon>    \r\n            <i class=\"text\">Scheduled on {{scheduledTime}}</i>\r\n            <div class=\"closeIcon\">\r\n                <mat-icon\r\n                    matTooltip=\"Clear Timer\" [matTooltipPosition]=\"'right'\"\r\n                    (click)=\"removeTimer()\"\r\n                    class=\"material-icons\"\r\n                >\r\n                    close\r\n                </mat-icon>\r\n            </div>    \r\n        </div>\r\n    </div>\r\n</mat-card-content>\r\n<div>\r\n    <app-message-form-floating-buttons \r\n    *ngIf=\"disableReplyFeature!==true && usage!='conversationPage'\"\r\n    size=\"mini\"\r\n    [active]=\"thread.displayProperties.shouldShowReplyForm\"\r\n    id=\"floatingBtns\"\r\n    (mouseenter)=\"showReplyForm()\"\r\n    [mainBtnColor]=\"'primary'\"\r\n    [disableSubmitBtn]=\"processing() || (!thread.displayProperties.replyMsg) && !fileId\"\r\n    (photoSelectionStart)=\"onPhotoSelectionStart()\"\r\n    (photoSelectionEnd)=\"onPhotoSelectionEnd($event)\"\r\n    (scheduleSelectionStart) = \"onScheduleSelectionStart()\"\r\n    (scheduleSelectionEnd) = \"onScheduleSelectionEnd($event)\"\r\n    (submit) = \"onSubmit()\"\r\n    (discard) = \"hideReplyForm('discard')\"\r\n    [usedIn]=\"'replyForm'\"\r\n    (click)=\"open()\"\r\n    >\r\n    </app-message-form-floating-buttons>\r\n</div>"
 
 /***/ }),
 
@@ -4209,7 +4223,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "mat-card-content {\n  -webkit-transition: padding 0.4s ease-in-out;\n  transition: padding 0.4s ease-in-out;\n  padding-top: 10px; }\n\n#floatingBtns {\n  display: block;\n  position: absolute;\n  right: 0px;\n  bottom: 15px; }\n\n.replyTextareaContainer {\n  position: absolute;\n  top: 0px; }\n\n.textarea {\n  max-height: 50px; }\n\n.btns .mat-button {\n  min-width: 50px;\n  font-size: 11px; }\n\n.textareaContainer {\n  height: 0px;\n  overflow: hidden;\n  -webkit-transition: height 0.4s;\n  transition: height 0.4s;\n  position: relative; }\n\n.textareaContainer #scheduledTime {\n    position: absolute;\n    bottom: 5px;\n    font-size: 11px;\n    width: 100%;\n    opacity: 0;\n    -webkit-transition: all 0.4s;\n    transition: all 0.4s;\n    margin-top: 0; }\n\n.textareaContainer #scheduledTime.active {\n      opacity: 1; }\n\n.textareaContainer #scheduledTime .text {\n      display: block;\n      float: left;\n      margin-top: 3px; }\n\n.textareaContainer #scheduledTime .timeIcon {\n      height: 10px;\n      width: 16px;\n      font-size: 12px;\n      float: left;\n      margin-top: 5px;\n      float: left;\n      display: block; }\n\n.textareaContainer #scheduledTime .closeIcon {\n      cursor: pointer;\n      height: 10px;\n      width: 16px;\n      font-size: 12px;\n      float: left;\n      margin-top: 3px;\n      margin-left: 20px; }\n\n.textareaContainer #scheduledTime .closeIcon mat-icon {\n        font-size: 12px;\n        width: 10px;\n        height: 10px; }\n\nmat-card-content.isReplyFormActive {\n  padding-bottom: 0px; }\n\nmat-card-content.isReplyFormActive .textareaContainer {\n    height: 110px; }\n\n.avatar-container {\n  margin-top: 9px;\n  float: left;\n  margin-right: 10px; }\n\n.avatar-container img {\n    margin: 0px;\n    vertical-align: top; }\n\n#windowContainer {\n  display: block;\n  position: fixed;\n  right: 0px;\n  bottom: 0px;\n  width: 411px;\n  height: 0px;\n  z-index: 111; }\n\n#windowContainer #floatingBtns {\n    position: absolute;\n    right: 10px;\n    bottom: 20px; }\n\n#windowContainer #window {\n    height: 0px;\n    -webkit-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    width: 0;\n    position: absolute;\n    bottom: 0px;\n    right: 86px;\n    -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n    z-index: 1;\n    background-color: #FFF;\n    overflow: hidden; }\n\n#windowContainer #window #body {\n      margin-top: 39px;\n      max-height: 80%;\n      padding-top: 10px; }\n\n#windowContainer #window #body #selectedTag {\n        padding-left: 10px;\n        margin-top: 6px;\n        border-bottom: 1px solid #e0e0e0;\n        padding-bottom: 5px;\n        margin-bottom: 5px; }\n\n#windowContainer #window #body #selectedTag img {\n          float: right;\n          margin-right: 10px; }\n\n#windowContainer #window #body /deep/ .mat-form-field-empty.mat-form-field-placeholder {\n        padding-left: 15px !important; }\n\n#windowContainer #window #body /deep/ input.mat-input-element {\n        padding-left: 13px;\n        padding-right: 13px; }\n\n#windowContainer #window #body /deep/ .mat-select-value-text {\n        padding-left: 15px;\n        padding-right: 15px; }\n\n#windowContainer #window #body /deep/ .mat-select-arrow-wrapper {\n        padding-right: 11px; }\n\n#windowContainer #window #body /deep/ .mat-form-field-infix {\n        width: 100%; }\n\n#windowContainer #window #body /deep/ .mat-form-field-placeholder {\n        padding-left: 15px; }\n\n#windowContainer #window #body /deep/ .mat-form-field-underline {\n        background-color: #e0e0e0; }\n\n#windowContainer #window #body /deep/ textarea.mat-input-element {\n        padding-left: 15px;\n        padding-right: 15px; }\n\n#windowContainer #window #footer {\n      padding-left: 15px;\n      padding-right: 15px;\n      position: absolute;\n      height: 38px;\n      bottom: 15px;\n      width: 100%; }\n\n#windowContainer #window #footer #deleteIcon {\n        color: #48494a;\n        display: block;\n        margin-top: 10px; }\n\n#windowContainer #window #scheduledTime {\n      position: absolute;\n      bottom: -1px;\n      font-size: 11px;\n      padding-left: 10px;\n      width: 100%;\n      opacity: 0;\n      -webkit-transition: all 0.4s;\n      transition: all 0.4s; }\n\n#windowContainer #window #scheduledTime.active {\n        opacity: 1; }\n\n#windowContainer #window #scheduledTime .timeIcon {\n        margin-top: 5px;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n\n#windowContainer #window #scheduledTime .closeIcon {\n        margin-top: 3px;\n        cursor: pointer;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n\n#windowContainer.active {\n    height: 400px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n      #windowContainer.active {\n        width: 100vw; } }\n\n#windowContainer.active #window {\n      height: 400px;\n      width: 320px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n        #windowContainer.active #window {\n          width: 100vw;\n          height: 100vh;\n          position: absolute;\n          left: 0;\n          z-index: -999; } }\n\n#windowContainer.minimized, #windowContainer.minimized #window {\n    height: 39px !important; }\n\n#header {\n  background: #424242;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  color: #fff;\n  height: 39px;\n  line-height: 18px;\n  outline: 1px solid transparent;\n  padding: 11px 20px;\n  z-index: 1111111111111;\n  position: absolute;\n  width: 100%; }\n\n#header .material-icons {\n    font-size: 19px; }\n\n#header #rightIcons {\n    margin-right: -15px; }\n\n#header #rightIcons a {\n      color: #b3b3b3; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .mobile-form-textarea {\n    height: calc(100vh - 180px); } }\n\n.contact-name {\n  position: relative;\n  top: -38px;\n  left: 37px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .mobile {\n    display: block; } }\n\n@media screen and (min-width: 768px) {\n  .mobile {\n    display: none; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .desktop {\n    display: none; } }\n\n@media screen and (min-width: 768px) {\n  .desktop {\n    display: block; } }\n", ""]);
+exports.push([module.i, "mat-card-content {\n  -webkit-transition: padding 0.4s ease-in-out;\n  transition: padding 0.4s ease-in-out;\n  padding-top: 10px; }\n\n#floatingBtns {\n  display: block;\n  position: absolute;\n  right: 0px;\n  bottom: 15px; }\n\n.replyTextareaContainer {\n  position: absolute;\n  top: 0px; }\n\n.textarea {\n  max-height: 50px; }\n\n.btns .mat-button {\n  min-width: 50px;\n  font-size: 11px; }\n\n.textareaContainer {\n  height: 0px;\n  overflow: hidden;\n  -webkit-transition: height 0.4s;\n  transition: height 0.4s;\n  position: relative; }\n\n.textareaContainer #scheduledTime {\n    position: absolute;\n    bottom: 5px;\n    font-size: 11px;\n    width: 100%;\n    opacity: 0;\n    -webkit-transition: all 0.4s;\n    transition: all 0.4s;\n    margin-top: 0; }\n\n.textareaContainer #scheduledTime.active {\n      opacity: 1; }\n\n.textareaContainer #scheduledTime .text {\n      display: block;\n      float: left;\n      margin-top: 3px; }\n\n.textareaContainer #scheduledTime .timeIcon {\n      height: 10px;\n      width: 16px;\n      font-size: 12px;\n      float: left;\n      margin-top: 5px;\n      float: left;\n      display: block; }\n\n.textareaContainer #scheduledTime .closeIcon {\n      cursor: pointer;\n      height: 10px;\n      width: 16px;\n      font-size: 12px;\n      float: left;\n      margin-top: 3px;\n      margin-left: 20px; }\n\n.textareaContainer #scheduledTime .closeIcon mat-icon {\n        font-size: 12px;\n        width: 10px;\n        height: 10px; }\n\nmat-card-content.isReplyFormActive {\n  padding-bottom: 0px; }\n\nmat-card-content.isReplyFormActive .textareaContainer {\n    height: 110px; }\n\n.avatar-container {\n  margin-top: 9px;\n  float: left;\n  margin-right: 10px; }\n\n.avatar-container img {\n    margin: 0px;\n    vertical-align: top; }\n\n#windowContainer {\n  display: block;\n  position: fixed;\n  right: 0px;\n  bottom: 0px;\n  width: 411px;\n  height: 0px;\n  z-index: 111; }\n\n#windowContainer #floatingBtns {\n    position: absolute;\n    right: 10px;\n    bottom: 20px; }\n\n#windowContainer #window {\n    height: 0px;\n    -webkit-transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    transition: height 0.2s ease-in-out, width 0.2s ease-in-out;\n    width: 0;\n    position: absolute;\n    bottom: 0px;\n    right: 86px;\n    -webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);\n    z-index: 1;\n    background-color: #FFF;\n    overflow: hidden; }\n\n#windowContainer #window #body {\n      margin-top: 39px;\n      max-height: 80%;\n      padding-top: 10px; }\n\n#windowContainer #window #body #selectedTag {\n        padding-left: 10px;\n        margin-top: 6px;\n        border-bottom: 1px solid #e0e0e0;\n        padding-bottom: 5px;\n        margin-bottom: 5px; }\n\n#windowContainer #window #body #selectedTag img {\n          float: right;\n          margin-right: 10px; }\n\n#windowContainer #window #body /deep/ .mat-form-field-empty.mat-form-field-placeholder {\n        padding-left: 15px !important; }\n\n#windowContainer #window #body /deep/ input.mat-input-element {\n        padding-left: 13px;\n        padding-right: 13px; }\n\n#windowContainer #window #body /deep/ .mat-select-value-text {\n        padding-left: 15px;\n        padding-right: 15px; }\n\n#windowContainer #window #body /deep/ .mat-select-arrow-wrapper {\n        padding-right: 11px; }\n\n#windowContainer #window #body /deep/ .mat-form-field-infix {\n        width: 100%; }\n\n#windowContainer #window #body /deep/ .mat-form-field-placeholder {\n        padding-left: 15px; }\n\n#windowContainer #window #body /deep/ .mat-form-field-underline {\n        background-color: #e0e0e0; }\n\n#windowContainer #window #body /deep/ textarea.mat-input-element {\n        padding-left: 15px;\n        padding-right: 15px; }\n\n#windowContainer #window #footer {\n      padding-left: 15px;\n      padding-right: 15px;\n      position: absolute;\n      height: 38px;\n      bottom: 15px;\n      width: 100%; }\n\n#windowContainer #window #footer #deleteIcon {\n        color: #48494a;\n        display: block;\n        margin-top: 10px; }\n\n#windowContainer #window #scheduledTime {\n      position: absolute;\n      bottom: -1px;\n      font-size: 11px;\n      padding-left: 10px;\n      width: 100%;\n      opacity: 0;\n      -webkit-transition: all 0.4s;\n      transition: all 0.4s; }\n\n#windowContainer #window #scheduledTime.active {\n        opacity: 1; }\n\n#windowContainer #window #scheduledTime .timeIcon {\n        margin-top: 5px;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n\n#windowContainer #window #scheduledTime .closeIcon {\n        margin-top: 3px;\n        cursor: pointer;\n        height: 10px;\n        width: 16px;\n        font-size: 12px; }\n\n#windowContainer.active {\n    height: 400px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n      #windowContainer.active {\n        width: 100vw; } }\n\n#windowContainer.active #window {\n      height: 400px;\n      width: 320px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n        #windowContainer.active #window {\n          width: 100vw;\n          height: 100vh;\n          position: absolute;\n          left: 0;\n          z-index: -999; } }\n\n#windowContainer.minimized, #windowContainer.minimized #window {\n    height: 39px !important; }\n\n#header {\n  background: #424242;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  color: #fff;\n  height: 39px;\n  line-height: 18px;\n  outline: 1px solid transparent;\n  padding: 11px 20px;\n  z-index: 1111111111111;\n  position: absolute;\n  width: 100%; }\n\n#header .material-icons {\n    font-size: 19px; }\n\n#header #rightIcons {\n    margin-right: -15px; }\n\n#header #rightIcons a {\n      color: #b3b3b3; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .mobile-form-textarea {\n    height: calc(100vh - 180px); } }\n\n.contact-name {\n  position: relative;\n  top: -38px;\n  left: 37px; }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .mobile {\n    display: block; } }\n\n@media screen and (min-width: 768px) {\n  .mobile {\n    display: none; } }\n\n@media screen and (min-width: 0px) and (max-width: 767px) {\n  .desktop {\n    display: none; } }\n\n@media screen and (min-width: 768px) {\n  .desktop {\n    display: block; } }\n\np {\n  word-wrap: break-word; }\n", ""]);
 
 // exports
 
@@ -4299,6 +4313,7 @@ var ThreadBodyComponent = /** @class */ (function () {
             return false;
         }
         this.thread.displayProperties.shouldShowReplyForm = false;
+        this.thread.displayCompose = false;
         setTimeout(function () {
             _this.formOtherBtnsZIndex = -111111;
         }, 500);
@@ -4320,7 +4335,8 @@ var ThreadBodyComponent = /** @class */ (function () {
         this.formOtherBtnsZIndex = 111;
     };
     ThreadBodyComponent.prototype.open = function () {
-        this.thread.displayCompose = true;
+        this.thread.displayCompose = !this.thread.displayCompose;
+        this.thread.displayProperties.shouldShowReplyForm = false;
     };
     ThreadBodyComponent.prototype.onScheduleSelectionStart = function () {
         this.selectingSchedule = true;
@@ -4359,6 +4375,10 @@ var ThreadBodyComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])('messageSendComplete'),
         __metadata("design:type", Object)
     ], ThreadBodyComponent.prototype, "onMessageSendComplete", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])('contact'),
+        __metadata("design:type", Object)
+    ], ThreadBodyComponent.prototype, "contact", void 0);
     ThreadBodyComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-thread-body',
@@ -4875,7 +4895,7 @@ var ThreadHeaderComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/number-threads/thread.module/thread/thread.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card \r\n    (mouseleave)=\"hideReplyForm(); hideAddContactForm();\"\r\n    [ngClass]=\"{'formIsActive':shouldShowReplyForm()}\"\r\n    (contextmenu)=\"showContextMenu($event)\"\r\n    (mouseover)=\"stopGlowing()\"\r\n>\r\n    <app-thread-context-menu\r\n            (buttonClicked) = \"onContextMenuBtnClicked($event)\"\r\n            [menuItems]=\"contextMenuItems\"\r\n            [autoDetectZone]=\"false\"\r\n            (onAssignUserClicked)=\"onAssignUserClicked($event)\"\r\n            [thread]=\"thread\"\r\n            [assigned_only]=\"assigned_only\"\r\n    ></app-thread-context-menu>\r\n    <app-thread-header\r\n        [thread]=\"thread\"\r\n        [imageUrl]='getImageUrl()'\r\n        [contact]='contact'\r\n    >\r\n    </app-thread-header>\r\n    <app-thread-body\r\n        [disableReplyFeature]=\"disableReplyFeature\"\r\n        [thread]=\"thread\"\r\n        (messageSendStart)=\"onMessageSendStart()\"\r\n        (messageSendComplete)=\"onMessageSendComplete()\"\r\n        [usage]=\"usage\"\r\n    >\r\n    </app-thread-body>\r\n    <app-thread-footer  [thread]=\"thread\"></app-thread-footer>    \r\n</mat-card>\r\n"
+module.exports = "<mat-card \r\n    (mouseleave)=\"hideReplyForm(); hideAddContactForm();\"\r\n    [ngClass]=\"{'formIsActive':shouldShowReplyForm()}\"\r\n    (contextmenu)=\"showContextMenu($event)\"\r\n    (mouseover)=\"stopGlowing()\"\r\n>\r\n    <app-thread-context-menu\r\n            (buttonClicked) = \"onContextMenuBtnClicked($event)\"\r\n            [menuItems]=\"contextMenuItems\"\r\n            [autoDetectZone]=\"false\"\r\n            (onAssignUserClicked)=\"onAssignUserClicked($event)\"\r\n            [thread]=\"thread\"\r\n            [assigned_only]=\"assigned_only\"\r\n    ></app-thread-context-menu>\r\n    <app-thread-header\r\n        [thread]=\"thread\"\r\n        [imageUrl]='getImageUrl()'\r\n        [contact]='contact'\r\n    >\r\n    </app-thread-header>\r\n    <app-thread-body\r\n        [disableReplyFeature]=\"disableReplyFeature\"\r\n        [thread]=\"thread\"\r\n        (messageSendStart)=\"onMessageSendStart()\"\r\n        (messageSendComplete)=\"onMessageSendComplete()\"\r\n        [usage]=\"usage\"\r\n        [contact]='contact'\r\n    >\r\n    </app-thread-body>\r\n    <app-thread-footer  [thread]=\"thread\"></app-thread-footer>    \r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -6014,7 +6034,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#buttonsContainer {\n  width: 68px;\n  display: block;\n  text-align: center; }\n  #buttonsContainer #otherButtons {\n    z-index: -11111;\n    height: 0px;\n    overflow-y: hidden;\n    text-align: center; }\n  #buttonsContainer #otherButtons.active {\n      z-index: 11111;\n      height: auto; }\n  #buttonsContainer #otherButtons /deep/ button {\n      margin-bottom: 10px;\n      opacity: 0; }\n  #buttonsContainer #newMsgBtn:hover #mainBtnIcons {\n    -webkit-transform: rotate(360deg) !important;\n    transform: rotate(360deg) !important; }\n  #buttonsContainer #newMsgBtn:hover #mainBtnIcons .plusIcon {\n      display: none !important; }\n  #buttonsContainer #newMsgBtn:hover #mainBtnIcons .pencilIcon {\n      display: block !important; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons {\n    -webkit-transition: all 0.4s ease;\n    transition: all 0.4s ease;\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    margin-top: -6px; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons .pencilIcon {\n      display: none; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons .plusIcon {\n      display: block; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons .plusIcon, #buttonsContainer #newMsgBtn #mainBtnIcons .pencilIcon {\n      margin-top: 5px; }\n  #buttonsContainer.active #otherButtons /deep/ button {\n    -webkit-transition: all 0.4s ease-in-out;\n    transition: all 0.4s ease-in-out;\n    opacity: 1 !important; }\n  #buttonsContainer.active #newMsgBtn #mainBtnIcons {\n    -webkit-transform: rotate(360deg) !important;\n    transform: rotate(360deg) !important; }\n  #buttonsContainer.active #newMsgBtn #mainBtnIcons .plusIcon {\n      display: none !important; }\n  #buttonsContainer.active #newMsgBtn #mainBtnIcons .pencilIcon {\n      display: block !important; }\n", ""]);
+exports.push([module.i, "#buttonsContainer {\n  width: 68px;\n  display: block;\n  text-align: center; }\n  #buttonsContainer #otherButtons {\n    z-index: -11111;\n    height: 0px;\n    overflow-y: hidden;\n    text-align: center; }\n  #buttonsContainer #otherButtons.active {\n      z-index: 11111;\n      height: auto; }\n  #buttonsContainer #otherButtons /deep/ button {\n      margin-bottom: 10px;\n      opacity: 0; }\n  #buttonsContainer #newMsgBtn:hover #mainBtnIcons {\n    -webkit-transform: rotate(360deg) !important;\n    transform: rotate(360deg) !important; }\n  #buttonsContainer #newMsgBtn:hover #mainBtnIcons .plusIcon {\n      display: none !important; }\n  #buttonsContainer #newMsgBtn:hover #mainBtnIcons .pencilIcon {\n      display: block !important; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons {\n    -webkit-transition: all 0.4s ease;\n    transition: all 0.4s ease;\n    -webkit-transform: rotate(180deg);\n    transform: rotate(180deg);\n    margin-top: -6px; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons .pencilIcon {\n      display: none; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons .plusIcon {\n      display: block; }\n  #buttonsContainer #newMsgBtn #mainBtnIcons .plusIcon, #buttonsContainer #newMsgBtn #mainBtnIcons .pencilIcon {\n      margin-top: 5px; }\n  #buttonsContainer.active #otherButtons /deep/ button {\n    -webkit-transition: all 0.4s ease-in-out;\n    transition: all 0.4s ease-in-out;\n    opacity: 1 !important; }\n  @media screen and (min-width: 0px) and (max-width: 767px) {\n      #buttonsContainer.active #otherButtons /deep/ button {\n        z-index: 1111; } }\n  #buttonsContainer.active #newMsgBtn #mainBtnIcons {\n    -webkit-transform: rotate(360deg) !important;\n    transform: rotate(360deg) !important; }\n  #buttonsContainer.active #newMsgBtn #mainBtnIcons .plusIcon {\n      display: none !important; }\n  #buttonsContainer.active #newMsgBtn #mainBtnIcons .pencilIcon {\n      display: block !important; }\n", ""]);
 
 // exports
 
@@ -6073,7 +6093,7 @@ var FloatingActionButtonsComponent = /** @class */ (function () {
     };
     FloatingActionButtonsComponent.prototype.disableBtn = function (name) {
         this.subButtons.map(function (subButton, i) {
-            if (subButton.name == name) {
+            if (subButton.name === name) {
                 subButton.disabled = true;
             }
             return subButton;
@@ -6081,7 +6101,7 @@ var FloatingActionButtonsComponent = /** @class */ (function () {
     };
     FloatingActionButtonsComponent.prototype.enableBtn = function (name) {
         this.subButtons.map(function (subButton, i) {
-            if (subButton.name == name) {
+            if (subButton.name === name) {
                 subButton.disabled = false;
             }
             return subButton;
@@ -6180,7 +6200,8 @@ var FloatingActionButtonsModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__shared_module__["a" /* SharedModule */]
             ],
             exports: [
-                __WEBPACK_IMPORTED_MODULE_2__floating_action_buttons_component__["a" /* FloatingActionButtonsComponent */]
+                __WEBPACK_IMPORTED_MODULE_2__floating_action_buttons_component__["a" /* FloatingActionButtonsComponent */],
+                __WEBPACK_IMPORTED_MODULE_3__sub_button_sub_button_component__["a" /* SubButtonComponent */]
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_2__floating_action_buttons_component__["a" /* FloatingActionButtonsComponent */],
@@ -6210,7 +6231,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "button {\n  background-size: cover;\n  background-position: center; }\n", ""]);
+exports.push([module.i, "button {\n  background-size: cover;\n  background-position: center;\n  z-index: 111; }\n", ""]);
 
 // exports
 
@@ -6997,7 +7018,7 @@ var GeneralService = /** @class */ (function () {
     };
     GeneralService.prototype.getObjectKeyByValue = function (object, value) {
         var keys = Object.keys(object).filter(function (key) {
-            if (object[key] == value) {
+            if (object[key] === value) {
                 return true;
             }
         });
@@ -7026,7 +7047,7 @@ var GeneralService = /** @class */ (function () {
     GeneralService.prototype.getObjectIndexFromArrayByKeyValue = function (array, key, value) {
         var index = -1;
         array.forEach(function (item, i) {
-            if (item[key] == value) {
+            if (item[key] === value) {
                 index = i;
             }
         });
@@ -7193,8 +7214,9 @@ var MessageService = /** @class */ (function () {
         this.onNewMessageWindowShow = new __WEBPACK_IMPORTED_MODULE_2_rxjs_Subject__["a" /* Subject */]();
     }
     MessageService.prototype.start = function (userS) {
-        if (userS)
+        if (userS) {
             this.userService = userS;
+        }
         var numbers = this.userService.user.numbers;
         var id = this.userService.user.id;
         var accountId = this.userService.user.accountId;
@@ -7202,46 +7224,50 @@ var MessageService = /** @class */ (function () {
     };
     MessageService.prototype.showTime = function (message, type) {
         if (type === void 0) { type = ''; }
-        var date = new Date(type && type == 'future' ? message.scheduled_time : message.date_created);
-        if (type == 'future') {
+        var date = new Date(type && type === 'future' ? message.scheduled_time : message.date_created);
+        if (type === 'future') {
             return __WEBPACK_IMPORTED_MODULE_5_moment__(new Date()).to(date);
         }
         var secondsDifference = Math.round((Math.abs(new Date().valueOf() - date.valueOf())) / 1000);
         var minutesDifference = Math.floor(secondsDifference / 60);
         var hoursDifference = Math.floor(secondsDifference / 60 / 60);
         if (secondsDifference < 60) {
-            return secondsDifference + " seconds ago";
+            return secondsDifference + ' seconds ago';
         }
         else if (secondsDifference < 60 * 60) {
-            return minutesDifference + " minutes " + (secondsDifference - minutesDifference * 60) + " seconds ago";
+            return minutesDifference + ' minutes ' + (secondsDifference - minutesDifference * 60) + ' seconds ago';
         }
         else if (secondsDifference < 60 * 60 * 12) {
-            return hoursDifference + " hours " + (minutesDifference - hoursDifference * 60) + " minutes ago";
+            return hoursDifference + ' hours ' + (minutesDifference - hoursDifference * 60) + ' minutes ago';
         }
         else {
-            return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear() + "  " + date.toLocaleTimeString();
+            return (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear() + '  ' + date.toLocaleTimeString();
         }
     };
     MessageService.prototype.sendMessage = function (configs) {
         var _this = this;
         var body = {};
         for (var prop in configs) {
-            if (configs[prop])
+            if (configs[prop]) {
                 body[prop] = configs[prop];
+            }
         }
-        if (body.to)
-            body.to = this.normalizeNumber(body.to); //in case of numbers with improper format
+        if (body.to) {
+            body.to = this.normalizeNumber(body.to); // in case of numbers with improper format
+        }
         if (!body.body) {
             body.body = '';
         }
         var sentMessage = this.apiService.call('/messages/create', body);
         sentMessage.subscribe(function (response) {
-            if (response.sent == true) {
+            if (response.sent === true) {
                 _this.generalService.showNotification('Your message is sent successfully!', 'Close');
-                if (response.message)
+                if (response.message) {
                     _this.wsService.messages.create.emit(response.message);
-                if (response.contact)
+                }
+                if (response.contact) {
                     _this.wsService.contacts.create.emit(response.contact);
+                }
             }
         });
         return sentMessage;
@@ -7308,37 +7334,38 @@ var MessageService = /** @class */ (function () {
     MessageService.prototype.returnMsgByMatchingId = function (msg, msgs) {
         for (var _i = 0, msgs_4 = msgs; _i < msgs_4.length; _i++) {
             var message = msgs_4[_i];
-            if (message.id == msg.id)
+            if (message.id === msg.id) {
                 return message;
+            }
         }
         return false;
     };
     MessageService.prototype.addMessageToArrayWithLimit = function (msg, msgArr, limit, backwards) {
-        backwards ? msgArr.unshift(msg) : msgArr.push(msg); //add to the array
+        backwards ? msgArr.unshift(msg) : msgArr.push(msg); // add to the array
         return this.applyMessageLimit(msgArr, limit, backwards);
     };
     MessageService.prototype.applyMessageLimit = function (msgs, limit, backwards) {
         while (msgs.length > limit) {
-            backwards ? msgs.pop() : msgs.shift(); //backwards and forwards
+            backwards ? msgs.pop() : msgs.shift(); // backwards and forwards
         }
         return msgs;
     };
     MessageService.prototype.insertMessageByDate = function (msg, msgs, limit) {
-        //oldest messages first   
+        // oldest messages first
         for (var i = 0; i < msgs.length; i++) {
-            var isNewer = this.messageIsNewerThanMessage(msg, msgs[i]); //boolean for whether the message is newer
-            if (i == msgs.length - 1) {
+            var isNewer = this.messageIsNewerThanMessage(msg, msgs[i]); // boolean for whether the message is newer
+            if (i === msgs.length - 1) {
                 if (isNewer) {
-                    msgs.push(msg); //if you get to the end and it is the newest - push it
+                    msgs.push(msg); // if you get to the end and it is the newest - push it
                 }
                 else {
-                    msgs.splice(i, 0, msg); //you are at the end but the last one is the newest
+                    msgs.splice(i, 0, msg); // you are at the end but the last one is the newest
                 }
                 break;
             }
             if (!isNewer) {
-                msgs.splice(i, 0, msg); //so insert it here            
-                break; //get out of here
+                msgs.splice(i, 0, msg); // so insert it here
+                break; // get out of here
             }
         }
         return this.applyMessageLimit(msgs, limit, false);
